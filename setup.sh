@@ -5,7 +5,7 @@ pkg update -y && pkg upgrade -y
 
 echo "📥 Installing system dependencies..."
 pkg install -y git curl clang cmake make python rust ninja \
-               autoconf automake libtool python-numpy
+               autoconf automake libtool python-numpy python-torch
 
 echo "⚙️ Installing rustup..."
 curl https://sh.rustup.rs -sSf | sh -s -- -y
@@ -15,7 +15,7 @@ echo "🐍 Upgrading Python build tools..."
 pip install --upgrade pip setuptools wheel maturin
 
 echo "📦 Installing Python packages..."
-pip install torch transformers flask requests safetensors accelerate
+pip install transformers flask requests safetensors accelerate 
 
 echo "🔐 Setting up SSH authorized key..."
 mkdir -p ~/.ssh
