@@ -2,10 +2,13 @@
 
 echo "📦 Updating packages..."
 pkg update -y && pkg upgrade -y
+pkg install python
+pip install maturin
+pip install --upgrade maturin
 
 echo "📥 Installing system dependencies..."
-pkg install -y curl clang cmake make python rust ninja wget \
-               autoconf automake libtool python-numpy python-torch
+pkg install -y curl clang cmake make ninja wget \
+               autoconf automake libtool rust python-numpy python-torch
 
 echo "⚙️ Installing rustup..."
 if [ ! -d "$HOME/.cargo" ]; then
